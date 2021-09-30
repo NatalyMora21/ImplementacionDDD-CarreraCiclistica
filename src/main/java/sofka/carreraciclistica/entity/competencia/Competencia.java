@@ -21,7 +21,7 @@ public class Competencia extends AggregateEvent <CompetenciaId>{
 
     public Competencia( CompetenciaId identity, NombreCompetencia nombre, TipoCompetencia tipo, FechaInicio fechaInicio, Categoria categoria,Ruta ruta){
         super(identity);
-        appendChange(new CreatedCompetencia(nombre,tipo,fechaInicio,categoria,ruta)).apply();
+        appendChange(new CompetenciaCreada(nombre,tipo,fechaInicio,categoria,ruta)).apply();
     }
 
     //Comportamientos Agregado
@@ -34,7 +34,7 @@ public class Competencia extends AggregateEvent <CompetenciaId>{
         appendChange(new TipoCompetenciaActaulizado(tipo)).apply();
     }
     public void cambiarFechaCompetencia(FechaInicio fechaInicio) {
-        appendChange(new FeachaCompetenciaActualizada(fechaInicio)).apply();
+        appendChange(new FechaCompetenciaActualizada(fechaInicio)).apply();
     }
 
     public void asociarCiclista(CiclistaId ciclistaId) {
@@ -42,7 +42,7 @@ public class Competencia extends AggregateEvent <CompetenciaId>{
     }
     public void agregarRuta(Recorrido recorrido, Kilometros kilometros, Exigencia exigencia) {
         RutaId rutaIdentity = new RutaId();
-        appendChange(new RutaAsociada(rutaIdentity, recorrido, kilometros,exigencia)).apply();
+        appendChange(new RutaAgregada(rutaIdentity, recorrido, kilometros,exigencia)).apply();
     }
 
     public void agregarJuez(Nombre nombre, Funcion funcion) {// (9)
@@ -64,10 +64,10 @@ public class Competencia extends AggregateEvent <CompetenciaId>{
         appendChange(new NombreJuezActualizado(juezIdentity, nombre)).apply();
     }
     public void actualizarFuncionesJuez(JuezId juezIdentity, Funcion funcion) {
-        appendChange(new FuncionesJuezActualizado(juezIdentity, funcion)).apply();
+        appendChange(new FuncionJuezActualizada(juezIdentity, funcion)).apply();
     }
     public void actualizarRecorridoRuta(RutaId rutaIdentity, Recorrido recorrido) {
-        appendChange(new RecorridoJuezActualizada(rutaIdentity, recorrido)).apply();
+        appendChange(new RecorridoRutaActualizado(rutaIdentity, recorrido)).apply();
     }
     public void actualizarKilometrosRuta(RutaId rutaIdentity, Kilometros kilometros) {
         appendChange(new KilometrosRutaActualizada(rutaIdentity, kilometros)).apply();

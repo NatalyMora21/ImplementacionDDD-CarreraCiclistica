@@ -29,7 +29,7 @@ public class Ciclista extends AggregateEvent<CiclistaId> {
     //Comportamiento agregado
 
     public void actualizarNombre(Nombre nombre) {
-        appendChange(new NombreActualizado(nombre)).apply();
+        appendChange(new NombreCiclistaActualizado(nombre)).apply();
     }
     public void actualizarEdad(Edad edad) {
         appendChange(new EdadActualizado(edad)).apply();

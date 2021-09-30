@@ -5,7 +5,15 @@ import sofka.carreraciclistica.entity.competencia.values.NombreCompetencia;
 
 
 public class NombreActualizado extends DomainEvent {
+
+    private final NombreCompetencia nuevoNombre;
+
     public NombreActualizado(NombreCompetencia nuevoNombre) {
-        super();
+        super("sofka.competencia.funcionJuezActualizada");
+        this.nuevoNombre = nuevoNombre;
+    }
+
+    public NombreCompetencia getNuevoNombre() {
+        return nuevoNombre;
     }
 }

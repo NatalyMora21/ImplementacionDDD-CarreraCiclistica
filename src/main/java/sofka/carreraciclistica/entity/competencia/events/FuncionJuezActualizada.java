@@ -1,25 +1,25 @@
 package sofka.carreraciclistica.entity.competencia.events;
 
 import co.com.sofka.domain.generic.DomainEvent;
+import sofka.carreraciclistica.entity.competencia.values.Funcion;
 import sofka.carreraciclistica.entity.competencia.values.JuezId;
-import sofka.carreraciclistica.entity.competencia.values.Nombre;
 
-public class NombreJuezActualizado extends DomainEvent {
+public class FuncionJuezActualizada extends DomainEvent {
 
     private final JuezId juezIdentity;
-    private final Nombre nombre;
+    private final Funcion funcion;
 
-    public NombreJuezActualizado(JuezId juezIdentity, Nombre nombre) {
+    public FuncionJuezActualizada(JuezId juezIdentity, Funcion funcion) {
         super("sofka.competencia.funcionJuezActualizada");
         this.juezIdentity = juezIdentity;
-        this.nombre=nombre;
+        this.funcion = funcion;
     }
 
     public JuezId getJuezIdentity() {
         return juezIdentity;
     }
 
-    public Nombre getNombre() {
-        return nombre;
+    public Funcion getFuncion() {
+        return funcion;
     }
 }
