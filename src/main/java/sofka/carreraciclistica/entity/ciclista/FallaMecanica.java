@@ -5,7 +5,6 @@ import sofka.carreraciclistica.entity.ciclista.values.Cambios;
 import sofka.carreraciclistica.entity.ciclista.values.Descripcion;
 import sofka.carreraciclistica.entity.ciclista.values.FallaMecanicaId;
 import sofka.carreraciclistica.entity.ciclista.values.Hora;
-import sofka.carreraciclistica.entity.competencia.values.Funciones;
 
 public class FallaMecanica  extends Entity<FallaMecanicaId> {
 

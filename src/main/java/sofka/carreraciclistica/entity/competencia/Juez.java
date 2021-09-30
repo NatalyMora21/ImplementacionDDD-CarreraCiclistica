@@ -1,27 +1,28 @@
 package sofka.carreraciclistica.entity.competencia;
 
 import co.com.sofka.domain.generic.Entity;
-import sofka.carreraciclistica.entity.competencia.values.Funciones;
+import sofka.carreraciclistica.entity.competencia.values.Funcion;
 import sofka.carreraciclistica.entity.competencia.values.JuezId;
+import sofka.carreraciclistica.entity.competencia.values.Nombre;
 
 public class Juez extends Entity<JuezId> {
 
 
     protected Nombre nombre;
-    protected Funciones funciones;
+    protected Funcion funcion;
 
-    public Juez(JuezId juezIdentity, Nombre nombre, Funciones funciones) {
+    public Juez(JuezId juezIdentity, Nombre nombre, Funcion funcion) {
         super(juezIdentity);
         this.nombre = nombre;
-        this.funciones=funciones;
+        this.funcion = funcion;
     }
 
     //Comportamientos
     public void actualizarNombre(Nombre nombre){
         this.nombre=nombre;
     }
-    public void actualizarNombre(Funciones funciones){
-        this.funciones=funciones;
+    public void actualizarNombre(Funcion funcion){
+        this.funcion = funcion;
     }
 
     //Propiedades
@@ -29,7 +30,7 @@ public class Juez extends Entity<JuezId> {
         return nombre;
     }
 
-    public Funciones funciones() {
-        return funciones;
+    public Funcion funciones() {
+        return funcion;
     }
 }

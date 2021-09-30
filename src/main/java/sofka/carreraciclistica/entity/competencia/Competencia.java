@@ -45,9 +45,9 @@ public class Competencia extends AggregateEvent <CompetenciaId>{
         appendChange(new RutaAsociada(rutaIdentity, recorrido, kilometros,exigencia)).apply();
     }
 
-    public void agregarJuez(Nombre nombre, Funciones funciones) {// (9)
+    public void agregarJuez(Nombre nombre, Funcion funcion) {// (9)
         JuezId juezIdentity = new JuezId();
-        appendChange(new JuezAgregado(juezIdentity, nombre, funciones)).apply(); // (10))
+        appendChange(new JuezAgregado(juezIdentity, nombre, funcion)).apply(); // (10))
     }
 
     public void asociarGanador(CiclistaId ciclistaId) {
@@ -63,8 +63,8 @@ public class Competencia extends AggregateEvent <CompetenciaId>{
     public void actualizarNombreJuez(JuezId juezIdentity, Nombre nombre) {
         appendChange(new NombreJuezActualizado(juezIdentity, nombre)).apply();
     }
-    public void actualizarFuncionesJuez(JuezId juezIdentity, Funciones funciones) {
-        appendChange(new FuncionesJuezActualizado(juezIdentity, funciones)).apply();
+    public void actualizarFuncionesJuez(JuezId juezIdentity, Funcion funcion) {
+        appendChange(new FuncionesJuezActualizado(juezIdentity, funcion)).apply();
     }
     public void actualizarRecorridoRuta(RutaId rutaIdentity, Recorrido recorrido) {
         appendChange(new RecorridoJuezActualizada(rutaIdentity, recorrido)).apply();

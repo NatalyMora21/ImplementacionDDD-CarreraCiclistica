@@ -5,7 +5,8 @@ import sofka.carreraciclistica.entity.ciclista.events.*;
 import sofka.carreraciclistica.entity.ciclista.values.*;
 import sofka.carreraciclistica.entity.ciclista.values.Nombre;
 import sofka.carreraciclistica.entity.competencia.events.*;
-import sofka.carreraciclistica.entity.competencia.values.*;
+import sofka.carreraciclistica.entity.competencia.values.Exigencia;
+import sofka.carreraciclistica.entity.competencia.values.Kilometros;
 
 
 import java.util.Set;
