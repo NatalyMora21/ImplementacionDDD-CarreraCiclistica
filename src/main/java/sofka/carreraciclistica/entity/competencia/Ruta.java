@@ -1,6 +1,9 @@
 package sofka.carreraciclistica.entity.competencia;
 
 import co.com.sofka.domain.generic.Entity;
+import sofka.carreraciclistica.entity.competencia.values.Exigencia;
+import sofka.carreraciclistica.entity.competencia.values.Kilometros;
+import sofka.carreraciclistica.entity.competencia.values.Recorrido;
 import sofka.carreraciclistica.entity.competencia.values.RutaId;
 
 public class Ruta extends Entity <RutaId> {
@@ -18,7 +21,7 @@ public class Ruta extends Entity <RutaId> {
 
     //Comportamientos
     public void actualizarRecorrido(Recorrido recorrido){
-        this.recorrido=nombre;
+        this.recorrido=recorrido;
     }
     public void actualizarKiloemtros(Kilometros kilometros){
         this.kilometros=kilometros;

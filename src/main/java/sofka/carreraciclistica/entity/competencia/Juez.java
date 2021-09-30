@@ -1,6 +1,7 @@
 package sofka.carreraciclistica.entity.competencia;
 
 import co.com.sofka.domain.generic.Entity;
+import sofka.carreraciclistica.entity.competencia.values.Funciones;
 import sofka.carreraciclistica.entity.competencia.values.JuezId;
 
 public class Juez extends Entity<JuezId> {
@@ -20,7 +21,7 @@ public class Juez extends Entity<JuezId> {
         this.nombre=nombre;
     }
     public void actualizarNombre(Funciones funciones){
-        this.nombre=funciones;
+        this.funciones=funciones;
     }
 
     //Propiedades

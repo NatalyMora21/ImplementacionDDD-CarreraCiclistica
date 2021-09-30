@@ -2,8 +2,7 @@ package sofka.carreraciclistica.entity.competencia;
 
 
 import co.com.sofka.domain.generic.AggregateEvent;
-import co.com.sofka.domain.generic.Identity;
-import sofka.carreraciclistica.entity.ciclista.values.CiclistId;
+import sofka.carreraciclistica.entity.ciclista.values.CiclistaId;
 import sofka.carreraciclistica.entity.competencia.events.*;
 import sofka.carreraciclistica.entity.competencia.values.*;
 
@@ -15,7 +14,7 @@ public class Competencia extends AggregateEvent <CompetenciaId>{
     protected TipoCompetencia tipo;
     protected FechaInicio fechaInicio;
     protected Categoria categoria;
-    protected Set<CiclistId> ciclistas;
+    protected Set<CiclistaId> ciclistas;
     protected Ruta ruta;
     protected Juez juez;
     protected Podio podio;
@@ -38,7 +37,7 @@ public class Competencia extends AggregateEvent <CompetenciaId>{
         appendChange(new FeachaCompetenciaActualizada(fechaInicio)).apply();
     }
 
-    public void asociarCiclista(CiclistId ciclistaId) {
+    public void asociarCiclista(CiclistaId ciclistaId) {
         appendChange(new CiclistaAsociado(ciclistaId)).apply(); // (10))
     }
     public void agregarRuta(Recorrido recorrido, Kilometros kilometros, Exigencia exigencia) {
@@ -51,7 +50,7 @@ public class Competencia extends AggregateEvent <CompetenciaId>{
         appendChange(new JuezAgregado(juezIdentity, nombre, funciones)).apply(); // (10))
     }
 
-    public void asociarGanador(CiclistId ciclistaId) {
+    public void asociarGanador(CiclistaId ciclistaId) {
         appendChange(new CiclistaGanador(ciclistaId)).apply(); // (10))
     }
 
