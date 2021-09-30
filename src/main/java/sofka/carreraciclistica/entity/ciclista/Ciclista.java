@@ -4,7 +4,6 @@ import co.com.sofka.domain.generic.AggregateEvent;
 import sofka.carreraciclistica.entity.ciclista.events.*;
 import sofka.carreraciclistica.entity.ciclista.values.*;
 import sofka.carreraciclistica.entity.ciclista.values.Nombre;
-import sofka.carreraciclistica.entity.competencia.events.*;
 import sofka.carreraciclistica.entity.competencia.values.Exigencia;
 import sofka.carreraciclistica.entity.competencia.values.Kilometros;
 
@@ -32,7 +31,7 @@ public class Ciclista extends AggregateEvent<CiclistaId> {
         appendChange(new NombreCiclistaActualizado(nombre)).apply();
     }
     public void actualizarEdad(Edad edad) {
-        appendChange(new EdadActualizado(edad)).apply();
+        appendChange(new EdadActualizada(edad)).apply();
     }
     public void actualizarIdentifiacion(Identificacion identificacion) {
         appendChange(new IdentificacionActualizada(identificacion)).apply();
@@ -60,7 +59,7 @@ public class Ciclista extends AggregateEvent<CiclistaId> {
 
     //Comportamientos de las entidades
     public void actualizarDescripcionReporteMedico(ReporteId reporteIdentity, Descripcion descripcion) {
-        appendChange(new DescripcionReporteMedicoctualizado(reporteIdentity, descripcion)).apply();
+        appendChange(new DescripcionReporteMedicoactualizado(reporteIdentity, descripcion)).apply();
     }
     public void actualizarDiagnosticoReporteMedico(ReporteId reporteIdentity, Diagnostico diagnostico) {
         appendChange(new DiagnosticoReporteMedicoActualizado(reporteIdentity, diagnostico)).apply();
