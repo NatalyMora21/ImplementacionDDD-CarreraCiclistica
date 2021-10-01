@@ -3,8 +3,6 @@ package sofka.carreraciclistica.entity.competencia;
 
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
-import sofka.carreraciclistica.entity.ciclista.Ciclista;
-import sofka.carreraciclistica.entity.ciclista.CiclistaChange;
 import sofka.carreraciclistica.entity.ciclista.values.CiclistaId;
 import sofka.carreraciclistica.entity.competencia.events.*;
 import sofka.carreraciclistica.entity.competencia.values.*;
@@ -66,7 +64,7 @@ public class Competencia extends AggregateEvent <CompetenciaId>{
     }
 
     public void asociarGanador(CiclistaId ciclistaId) {
-        appendChange(new CiclistaGanador(ciclistaId)).apply(); // (10))
+        appendChange(new CiclistaGanadorAgregado(ciclistaId)).apply(); // (10))
     }
 
     public void agregarPodio(Podio podio) {

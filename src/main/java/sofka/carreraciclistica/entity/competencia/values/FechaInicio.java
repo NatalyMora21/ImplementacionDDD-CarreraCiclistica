@@ -2,16 +2,17 @@ package sofka.carreraciclistica.entity.competencia.values;
 
 import co.com.sofka.domain.generic.ValueObject;
 
+import java.time.LocalDate;
 import java.util.Date;
 
-public class FechaInicio implements ValueObject<Date> {
+public class FechaInicio implements ValueObject<LocalDate> {
 
-    private final Date value;
-    public FechaInicio(Date value) {
+    private final LocalDate value;
+    public FechaInicio(LocalDate value) {
         this.value=value;
     }
 
-    public Date value() {
+    public LocalDate value() {
         return value;
     }
 }

@@ -16,29 +16,6 @@ import sofka.carreraciclistica.usecase.CrearCiclistaUseCase;
 @SpringBootTest
 class CarreraciclisticaApplicationTests {
 
-	@Test
-	void crearCiclista() {
 
-		var command = new CrearCiclista(
-				CiclistaId.of("xxx"),
-				new Nombre("Nataly" , "Mora"),
-				new Edad("23"),
-				new Identificacion("1019135062", Identificacion.TipoDocumento.CC)
-		);
-
-		var useCase = new CrearCiclistaUseCase();
-
-		//act
-		//Forma de llamar el caso de uso
-
-		var events = UseCaseHandler.getInstance().syncExecutor(useCase, new RequestCommand<>(command))
-				.orElseThrow().getDomainEvents();
-
-		//asert --> Consecuencias , el evento del
-		var event =(CiclistaCreado)events.get(0);
-		//Assertions.assertEquals("Nataly Mora", event.getNombre().value());
-		Assertions.assertEquals("23", event.getEdad().value());
-		Assertions.assertEquals("1019135062" , event.getIdentificacion().value());
-	}
 
 }

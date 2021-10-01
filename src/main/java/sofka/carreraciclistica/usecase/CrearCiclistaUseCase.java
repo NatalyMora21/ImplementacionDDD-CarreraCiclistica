@@ -4,6 +4,7 @@ import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.business.support.ResponseEvents;
 import sofka.carreraciclistica.entity.ciclista.Ciclista;
 import sofka.carreraciclistica.entity.ciclista.command.CrearCiclista;
+import sofka.carreraciclistica.entity.competencia.Competencia;
 
 public class CrearCiclistaUseCase extends UseCase <RequestCommand<CrearCiclista>, ResponseEvents> {
 
@@ -12,14 +13,15 @@ public class CrearCiclistaUseCase extends UseCase <RequestCommand<CrearCiclista>
 
         var command = crearCiclistaRequestCommand.getCommand();
 
-        var cicilista = new Ciclista(
+
+        var ciclista = new Ciclista(
             command.getEntityId(),
             command.getNombreCiclista(),
             command.getEdadCiclista(),
             command.getIdentificacionCiclista()
         );
 
-        emit().onResponse(new ResponseEvents(cicilista.getUncommittedChanges()));
+        emit().onResponse(new ResponseEvents(ciclista.getUncommittedChanges()));
 
     }
 

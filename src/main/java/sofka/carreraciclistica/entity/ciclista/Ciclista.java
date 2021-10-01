@@ -81,8 +81,8 @@ public class Ciclista extends AggregateEvent<CiclistaId> {
     public void actualizarContinuidadReporteMedico(ReporteId reporteIdentity, Continuidad continuidad) {
         appendChange(new ContinuidadReporteMedicoActualizada(reporteIdentity, continuidad)).apply();
     }
-    public void actualizarDescripcionFallaMecanica(FallaMecanicaId fallaIdentity, Kilometros kilometros) {
-        appendChange(new DescripcionFallaMecanicaActualizada(fallaIdentity, kilometros)).apply();
+    public void actualizarDescripcionFallaMecanica(FallaMecanicaId fallaIdentity, Descripcion descripcion) {
+        appendChange(new DescripcionFallaMecanicaActualizada(fallaIdentity, descripcion)).apply();
     }
     public void actualizarCambiosFallaMecanica(FallaMecanicaId fallaIdentity, Exigencia exigencia) {
         appendChange(new CambiosFallaMecanicaActualizada(fallaIdentity, exigencia)).apply();

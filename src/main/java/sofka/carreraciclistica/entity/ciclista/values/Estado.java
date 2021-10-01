@@ -1,8 +1,9 @@
 package sofka.carreraciclistica.entity.ciclista.values;
 
+import co.com.sofka.domain.generic.ValueObject;
 import sofka.carreraciclistica.entity.competencia.values.Categoria;
 
-public class Estado {
+public class Estado implements ValueObject<Estado.EstadoCiclista> {
 
     public enum EstadoCiclista {
         ACTIVO,

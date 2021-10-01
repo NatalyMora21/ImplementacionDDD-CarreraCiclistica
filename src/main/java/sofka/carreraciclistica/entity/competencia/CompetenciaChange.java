@@ -46,6 +46,7 @@ public class CompetenciaChange extends EventChange {
 
 
         apply((CiclistaAsociado event) -> {
+
             competencia.ciclistas.add(event.getCiclistaId());
         });
 

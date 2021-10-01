@@ -1,28 +1,29 @@
-package sofka.carreraciclistica.entity.competencia.events;
+package sofka.carreraciclistica.entity.competencia.command;
 
-import co.com.sofka.domain.generic.DomainEvent;
-import sofka.carreraciclistica.entity.ciclista.values.CiclistaId;
-import sofka.carreraciclistica.entity.competencia.Juez;
+import co.com.sofka.domain.generic.Command;
 import sofka.carreraciclistica.entity.competencia.Ruta;
 import sofka.carreraciclistica.entity.competencia.values.*;
 
-import java.util.Set;
+public class CrearCompetencia extends Command {
 
-public class CompetenciaCreada extends DomainEvent {
-
+    private final CompetenciaId identity;
     private final NombreCompetencia nombre;
     private final TipoCompetencia tipo;
     private final FechaInicio fechaInicio;
     private final Categoria categoria;
     private final Ruta ruta;
 
-    public CompetenciaCreada(NombreCompetencia nombre, TipoCompetencia tipo, FechaInicio fechaInicio, Categoria categoria, Ruta ruta) {
-        super("sofka.competencia.competenciaCreada");
-        this.nombre= nombre;
-        this.tipo= tipo;
-        this.fechaInicio= fechaInicio;
-        this.categoria= categoria;
-        this.ruta= ruta;
+    public CrearCompetencia(CompetenciaId identity, NombreCompetencia nombre, TipoCompetencia tipo, FechaInicio fechaInicio, Categoria categoria, Ruta ruta) {
+        this.identity = identity;
+        this.nombre = nombre;
+        this.tipo = tipo;
+        this.fechaInicio = fechaInicio;
+        this.categoria = categoria;
+        this.ruta = ruta;
+    }
+
+    public CompetenciaId getIdentity() {
+        return identity;
     }
 
     public NombreCompetencia getNombre() {
