@@ -2,6 +2,8 @@ package sofka.carreraciclistica.entity.ciclista.values;
 
 import co.com.sofka.domain.generic.ValueObject;
 
+import java.util.Objects;
+
 public class Identificacion implements ValueObject<Identificacion.Props> {
 
     public enum TipoDocumento
@@ -12,8 +14,8 @@ public class Identificacion implements ValueObject<Identificacion.Props> {
     private final TipoDocumento tipoDocumento;
 
     public Identificacion(String numero, TipoDocumento tipoDocumento) {
-        this.numero = numero;
-        this.tipoDocumento = tipoDocumento;
+        this.numero = Objects.requireNonNull( numero );
+        this.tipoDocumento = Objects.requireNonNull(tipoDocumento);
     }
     public Props value() {
         return new Props() {

@@ -11,6 +11,19 @@ public class Nombre  implements ValueObject<String> {
         this.value = Objects.requireNonNull(value);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Nombre nombre = (Nombre) o;
+        return Objects.equals(value, nombre.value);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(value);
+    }
+
     public String value(){
         return value;
     }

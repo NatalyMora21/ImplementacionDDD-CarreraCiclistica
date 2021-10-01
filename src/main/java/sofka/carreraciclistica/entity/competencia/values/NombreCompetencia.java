@@ -10,6 +10,20 @@ public class NombreCompetencia implements ValueObject<String> {
     public NombreCompetencia(String value) {
         this.value = Objects.requireNonNull(value);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        NombreCompetencia that = (NombreCompetencia) o;
+        return Objects.equals(value, that.value);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(value);
+    }
+
     public String value(){
         return value;
     }

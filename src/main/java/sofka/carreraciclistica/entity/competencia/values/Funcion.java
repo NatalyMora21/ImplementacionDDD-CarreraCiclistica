@@ -12,6 +12,19 @@ public class Funcion implements ValueObject<String> {
         this.value = Objects.requireNonNull(value);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Funcion funcion = (Funcion) o;
+        return Objects.equals(value, funcion.value);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(value);
+    }
+
     public String value(){
         return value;
     }

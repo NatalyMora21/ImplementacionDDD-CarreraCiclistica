@@ -2,14 +2,16 @@ package sofka.carreraciclistica.entity.competencia.values;
 
 import co.com.sofka.domain.generic.ValueObject;
 
+import java.util.Objects;
+
 public class Recorrido implements ValueObject <Recorrido.Props> {
 
     private final String lugarInicio;
     private final String lugarFin;
 
     public Recorrido(String lugarInicio, String lugarFin) {
-        this.lugarInicio = lugarInicio;
-        this.lugarFin = lugarFin;
+        this.lugarInicio =  Objects.requireNonNull(lugarInicio);
+        this.lugarFin = Objects.requireNonNull(lugarFin);
     }
 
     public Props value() {
