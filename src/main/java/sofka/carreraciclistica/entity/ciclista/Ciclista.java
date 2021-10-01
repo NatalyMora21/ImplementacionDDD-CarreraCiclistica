@@ -1,6 +1,7 @@
 package sofka.carreraciclistica.entity.ciclista;
 
 import co.com.sofka.domain.generic.AggregateEvent;
+import co.com.sofka.domain.generic.DomainEvent;
 import sofka.carreraciclistica.entity.ciclista.events.*;
 import sofka.carreraciclistica.entity.ciclista.values.*;
 import sofka.carreraciclistica.entity.ciclista.values.Nombre;
@@ -8,6 +9,7 @@ import sofka.carreraciclistica.entity.competencia.values.Exigencia;
 import sofka.carreraciclistica.entity.competencia.values.Kilometros;
 
 
+import java.util.List;
 import java.util.Set;
 
 public class Ciclista extends AggregateEvent<CiclistaId> {
@@ -26,6 +28,18 @@ public class Ciclista extends AggregateEvent<CiclistaId> {
         appendChange(new CiclistaCreado(nombre,edad,identificacion));
 
     }
+
+    private Ciclista(CiclistaId entityId){
+        super(entityId);
+        subscribe(new CiclistaChange(this));
+    }
+
+    public static Ciclista from(CiclistaId entityId, List<DomainEvent> events){
+        var ciclista = new Ciclista(entityId);
+        events.forEach(ciclista::applyEvent);
+        return ciclista;
+    }
+
     //Comportamiento agregado
 
     public void actualizarNombre(Nombre nombre) {
@@ -57,7 +71,6 @@ public class Ciclista extends AggregateEvent<CiclistaId> {
         appendChange(new FallaMecanicaAgregada(fallaIdentity, hora,descripcion, cambios)).apply();
     }
 
-
     //Comportamientos de las entidades
     public void actualizarDescripcionReporteMedico(ReporteId reporteIdentity, Descripcion descripcion) {
         appendChange(new DescripcionReporteMedicoactualizado(reporteIdentity, descripcion)).apply();
@@ -74,9 +87,5 @@ public class Ciclista extends AggregateEvent<CiclistaId> {
     public void actualizarCambiosFallaMecanica(FallaMecanicaId fallaIdentity, Exigencia exigencia) {
         appendChange(new CambiosFallaMecanicaActualizada(fallaIdentity, exigencia)).apply();
     }
-
-
-
-
 
 }

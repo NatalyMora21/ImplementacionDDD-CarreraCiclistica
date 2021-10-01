@@ -2,10 +2,14 @@ package sofka.carreraciclistica.entity.competencia;
 
 
 import co.com.sofka.domain.generic.AggregateEvent;
+import co.com.sofka.domain.generic.DomainEvent;
+import sofka.carreraciclistica.entity.ciclista.Ciclista;
+import sofka.carreraciclistica.entity.ciclista.CiclistaChange;
 import sofka.carreraciclistica.entity.ciclista.values.CiclistaId;
 import sofka.carreraciclistica.entity.competencia.events.*;
 import sofka.carreraciclistica.entity.competencia.values.*;
 
+import java.util.List;
 import java.util.Set;
 
 public class Competencia extends AggregateEvent <CompetenciaId>{
@@ -22,6 +26,17 @@ public class Competencia extends AggregateEvent <CompetenciaId>{
     public Competencia( CompetenciaId identity, NombreCompetencia nombre, TipoCompetencia tipo, FechaInicio fechaInicio, Categoria categoria,Ruta ruta){
         super(identity);
         appendChange(new CompetenciaCreada(nombre,tipo,fechaInicio,categoria,ruta)).apply();
+    }
+
+    private Competencia(CompetenciaId entityId){
+        super(entityId);
+        subscribe(new CompetenciaChange(this));
+    }
+
+    public static Competencia from(CompetenciaId entityId, List<DomainEvent> events){
+        var competencia = new Competencia(entityId);
+        events.forEach(competencia::applyEvent);
+        return competencia;
     }
 
     //Comportamientos Agregado

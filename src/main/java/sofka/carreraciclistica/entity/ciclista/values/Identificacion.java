@@ -4,9 +4,9 @@ import co.com.sofka.domain.generic.ValueObject;
 
 public class Identificacion implements ValueObject<Identificacion.Props> {
 
-    enum TipoDocumento
+    public enum TipoDocumento
     {
-        CC, CE, PASAPORTE;
+        TI, CC, CE, PASAPORTE;
     }
     private final String numero;
     private final TipoDocumento tipoDocumento;
