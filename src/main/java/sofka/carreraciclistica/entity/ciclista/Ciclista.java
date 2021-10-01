@@ -17,6 +17,7 @@ public class Ciclista extends AggregateEvent<CiclistaId> {
     protected Estado estado;
     protected Resultado resultado;
     protected Puesto puesto;
+    protected Continuidad continuidad;
     protected Set<ReporteMedico> reportesMedicos;
     protected Set<FallaMecanica> fallasMecanicas;
 
@@ -43,7 +44,7 @@ public class Ciclista extends AggregateEvent<CiclistaId> {
         appendChange(new ResultadoActualizado(resultado)).apply();
     }
     public void actualizarPuesto(Puesto puesto) {
-        appendChange(new ActualizarPuesto(puesto)).apply();
+        appendChange(new PuestoActualizado(puesto)).apply();
     }
 
     public void agregarReporteMedico( Descripcion descripcion, Diagnostico diagnostico, Continuidad continuidad) {
