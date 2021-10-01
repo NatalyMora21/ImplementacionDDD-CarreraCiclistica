@@ -77,4 +77,6 @@ public class Competencia extends AggregateEvent <CompetenciaId>{
     }
 
 
+
+
 }
